@@ -69,13 +69,13 @@ const renderRow = (item: TeacherListItem) => (
     <td className='hidden md:table-cell'>
       {item.subjects
         .map(subject => subject.name)
-        .join(',')
+        .join(', ')
         .trim() || '-'}
     </td>
     <td className='hidden md:table-cell'>
       {item.classes
         .map(cls => cls.name)
-        .join(',')
+        .join(', ')
         .trim() || '-'}
     </td>
     <td className='hidden md:table-cell'>{item.phone}</td>
