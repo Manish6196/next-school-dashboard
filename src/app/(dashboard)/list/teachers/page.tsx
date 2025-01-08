@@ -88,7 +88,7 @@ const renderRow = (item: TeacherListItem) => (
           </button>
         </Link>
         {role === 'admin' && (
-          <FormModal table='teacher' type='delete' id={Number(item.id)} />
+          <FormModal table='teacher' type='delete' id={item.id} />
         )}
       </div>
     </td>
