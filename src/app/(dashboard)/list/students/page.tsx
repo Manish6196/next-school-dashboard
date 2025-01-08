@@ -84,7 +84,7 @@ const StudentListPage = async ({
 }: {
   searchParams: { [key: string]: string | undefined };
 }) => {
-  const { page, ...queryParams } = searchParams;
+  const { page, ...queryParams } = await searchParams;
 
   const p = page ? parseInt(page) : 1;
 
