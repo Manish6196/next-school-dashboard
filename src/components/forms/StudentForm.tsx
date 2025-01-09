@@ -94,7 +94,7 @@ const StudentForm = ({
         Personal Information
       </span>
       <CldUploadWidget
-        uploadPreset='school'
+        uploadPreset='school-app-cloudinary'
         onSuccess={(result, { widget }) => {
           setImg(result.info);
           widget.close();
