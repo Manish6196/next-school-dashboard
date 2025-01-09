@@ -189,7 +189,7 @@ const TeacherForm = ({
           )}
         </div>
         <CldUploadWidget
-          uploadPreset='school'
+          uploadPreset='school-app-cloudinary'
           onSuccess={(result, { widget }) => {
             setImg(result.info);
             widget.close();

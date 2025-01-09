@@ -1,5 +1,6 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import {
   ClassSchema,
   ExamSchema,
@@ -186,6 +187,14 @@ export const updateTeacher = async (
     return { success: false, error: true };
   }
   try {
+    await clerkClient.users.updateUser(data.id, {
+      username: data.username,
+      ...(data.password !== '' && { password: data.password }),
+      firstName: data.name,
+      lastName: data.surname,
+      publicMetadata: { role: 'teacher' },
+    });
+
     await prisma.teacher.update({
       where: {
         id: data.id,
@@ -297,6 +306,14 @@ export const updateStudent = async (
     return { success: false, error: true };
   }
   try {
+    await clerkClient.users.updateUser(data.id, {
+      username: data.username,
+      ...(data.password !== '' && { password: data.password }),
+      firstName: data.name,
+      lastName: data.surname,
+      publicMetadata: { role: 'student' },
+    });
+
     await prisma.student.update({
       where: {
         id: data.id,
