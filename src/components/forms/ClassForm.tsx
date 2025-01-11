@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 import InputField from '../InputField';
 import { classSchema, ClassSchema } from '@/lib/formValidationSchemas';
 import { createClass, updateClass } from '@/lib/actions';
-import { Dispatch, SetStateAction, useEffect, useActionState } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
+import { useFormState } from "react-dom";
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 
@@ -30,7 +31,7 @@ const ClassForm = ({
 
   // AFTER REACT 19 IT'LL BE USEACTIONSTATE
 
-  const [state, formAction] = useActionState(
+  const [state, formAction] = useFormState(
     type === 'create' ? createClass : updateClass,
     {
       success: false,

@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 import InputField from '../InputField';
 import { examSchema, ExamSchema } from '@/lib/formValidationSchemas';
 import { createExam, updateExam } from '@/lib/actions';
-import { Dispatch, SetStateAction, useEffect, useActionState } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
+import { useFormState } from "react-dom";
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 
@@ -30,7 +31,7 @@ const ExamForm = ({
 
   // AFTER REACT 19 IT'LL BE USEACTIONSTATE
 
-  const [state, formAction] = useActionState(
+  const [state, formAction] = useFormState(
     type === 'create' ? createExam : updateExam,
     {
       success: false,

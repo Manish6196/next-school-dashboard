@@ -9,8 +9,8 @@ import {
   SetStateAction,
   useEffect,
   useState,
-  useActionState,
 } from 'react';
+import { useFormState } from "react-dom";
 import { teacherSchema, TeacherSchema } from '@/lib/formValidationSchemas';
 import { createTeacher, updateTeacher } from '@/lib/actions';
 import { useRouter } from 'next/navigation';
@@ -38,7 +38,7 @@ const TeacherForm = ({
 
   const [img, setImg] = useState<any>();
 
-  const [state, formAction] = useActionState(
+  const [state, formAction] = useFormState(
     type === 'create' ? createTeacher : updateTeacher,
     {
       success: false,

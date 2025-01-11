@@ -16,8 +16,8 @@ import {
   useEffect,
   useState,
   JSX,
-  useActionState,
 } from 'react';
+import { useFormState } from "react-dom";
 import { toast } from 'react-toastify';
 import { FormContainerProps } from './FormContainer';
 
@@ -128,7 +128,7 @@ const FormModal = ({
   const [open, setOpen] = useState(false);
 
   const Form = () => {
-    const [state, formAction] = useActionState(deleteActionMap[table], {
+    const [state, formAction] = useFormState(deleteActionMap[table], {
       success: false,
       error: false,
     });
